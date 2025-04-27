@@ -3,10 +3,11 @@ N = len(A)
 
 # Please write your code here.
 cnt = 0
-for i, t in enumerate(A):
+open_cnt = 0
+for t in A:
     if t == '(':
-        for j in range(i + 1, N):
-            if A[j] == ')':
-                cnt += 1
+        open_cnt += 1
+    elif t == ')':
+        cnt += open_cnt
 
 print(cnt)
