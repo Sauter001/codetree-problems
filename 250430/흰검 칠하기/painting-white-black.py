@@ -1,4 +1,7 @@
 from collections import defaultdict
+import sys
+
+input = sys.stdin.readline
 
 n = int(input())
 commands = [tuple(input().split()) for _ in range(n)]
