@@ -29,7 +29,7 @@ else:
             height = (y1[1] - y1[0]) 
         elif (y1[0] < y2[1] < y2[0]) and (y1[1] <= y1[0]):
             height = (y2[0] - y2[1])
-        else:
+        elif (y1[0] <= y1[1] <= y2[0]) and (y1[0] <= y2[1] <= y2[0]):
             height = y2[0] - y1[0]
 
 print(width * height)
