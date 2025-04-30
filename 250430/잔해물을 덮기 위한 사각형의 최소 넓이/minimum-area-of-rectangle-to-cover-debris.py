@@ -16,7 +16,12 @@ if (x1[0] < x1[1] < x2[0]) or (x1[0] < x2[1] < x2[0]):
         width = x2[0] - x1[0]
         height = y2[0] - y1[0]
     elif (y1[1] <= y1[0] <= y2[1]) and (y1[1] <= y2[0] <= y2[1]):
-        width = (x1[1] - x1[0]) if (x1[0] < x1[1] < x2[0]) else (x2[0] - x2[1])
+        if (x1[0] < x1[1] < x2[0]) and (x2[0] <= x2[1]): 
+            width = (x1[1] - x1[0])  
+        elif (x1[0] < x2[1] < x2[0]) and (x1[1] <= x1[0]):
+            width = (x2[0] - x2[1])
+        else: 
+            width = x2[0] - x1[0]
         height = y2[0] - y1[0]
 elif (x1[1] <= x1[0] <= x2[1]) and (x1[1] <= x2[0] <= x2[1]):
     width = x2[0] - x1[0]
