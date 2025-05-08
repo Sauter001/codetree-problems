@@ -7,10 +7,7 @@ cnt = 0
 while idx < n:
     if arr[idx]:
         cnt += 1
-        if idx + m < n:
-            idx += 2 * m + 1
-        else:
-            break
+        idx += 2 * m + 1
     else:
         idx += 1
 print(cnt)
