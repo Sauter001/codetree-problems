@@ -8,6 +8,8 @@ for i in range(n):
     rects.append(('r', a, b, c, d) if i % 2 == 0 else ('b', a, b, c, d))
 
 # Please write your code here.
+xs = list(set(xs))
+ys = list(set(ys))
 xs.sort()
 ys.sort()
 
