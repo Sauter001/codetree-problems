@@ -2,5 +2,11 @@ n, m = map(int, input().split())
 arr = list(map(int, input().split()))
 
 # Please write your code here.
-wifi_range = m * 2 + 1
-print(n // wifi_range)
+idx = 0
+cnt = 0
+while idx < n:
+    if arr[idx]:
+        if idx + m < n:
+            cnt += 1
+            idx += 2 * m + 1
+print(cnt)
