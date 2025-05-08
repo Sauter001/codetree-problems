@@ -6,12 +6,11 @@ idx = 0
 cnt = 0
 while idx < n:
     if arr[idx]:
+        cnt += 1
         if idx + m < n:
-            cnt += 1
             idx += 2 * m + 1
         else:
-            cnt = 1
-            break
+            idx += 1
     else:
         idx += 1
 print(cnt)
