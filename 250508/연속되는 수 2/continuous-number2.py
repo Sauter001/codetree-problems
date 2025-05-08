@@ -13,4 +13,7 @@ for i in range(n):
         cnt = 1
     else:
         cnt += 1
+
+if not sequence_counts:
+    sequence_counts.append(cnt)
 print(max(sequence_counts))
