@@ -16,9 +16,6 @@ def infect_person(from_dev, to_dev):
 for t, x, y in handshakes:
     # print(t,x,y)
     
-    if not (infected_list[x] or infected_list[y]):
-        continue
-    
     if infected_list[x]:
         infect_person(x, y)
     if infected_list[y]:
