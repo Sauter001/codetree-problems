@@ -14,7 +14,7 @@ def infect_person(infected_time, from_dev, to_dev):
     if handshake_counts[from_dev] < K:
         infected_list[to_dev] = True
         infected_times[to_dev] = infected_time
-    handshake_counts[from_dev] += 1     
+        handshake_counts[from_dev] += 1     
 
 for t, x, y in handshakes:
     # print(t,x,y)
