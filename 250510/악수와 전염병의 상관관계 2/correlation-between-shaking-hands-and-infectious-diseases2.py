@@ -12,9 +12,10 @@ handshakes.sort()
 # 감염시키는 사람은 전염됐다고 가정
 def infect_person(infected_time, from_dev, to_dev):
     if handshake_counts[from_dev] < K:
-        infected_list[to_dev] = True
-        infected_times[to_dev] = infected_time
-        handshake_counts[from_dev] += 1     
+        if not infected_list[to_dev]:
+            infected_list[to_dev] = True
+            infected_times[to_dev] = infected_time
+    handshake_counts[from_dev] += 1     
 
 for t, x, y in handshakes:
     # print(t,x,y)
