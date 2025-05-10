@@ -9,7 +9,7 @@ handshakes.sort()
 
 # 감염시키는 사람은 전염됐다고 가정
 def infect_person(from_dev, to_dev):
-    if handshake_counts[from_dev] < P:
+    if handshake_counts[from_dev] < K:
         infected_list[to_dev] = True
     handshake_counts[from_dev] += 1
         
