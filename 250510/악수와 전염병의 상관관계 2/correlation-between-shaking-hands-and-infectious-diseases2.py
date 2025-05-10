@@ -11,8 +11,8 @@ handshakes.sort()
 def infect_person(from_dev, to_dev):
     if handshake_counts[from_dev] < K:
         infected_list[to_dev] = True
-    handshake_counts[from_dev] += 1      
-    handshake_counts[to_dev] += 1      
+    handshake_counts[from_dev] += 1     
+    handshake_counts[to_dev] += 1  
 
 for t, x, y in handshakes:
     # print(t,x,y)
