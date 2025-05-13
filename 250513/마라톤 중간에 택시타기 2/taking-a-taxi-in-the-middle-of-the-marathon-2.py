@@ -7,7 +7,7 @@ y = [p[1] for p in points]
 def distance(x1, y1, x2, y2):
     return abs(x1 - x2) + abs(y1 - y2)
 
-shortest_dist = 10000
+shortest_dist = 100 ** 6
 for skip_point in range(1, n-1):
     path = [(0, 0)]
     for i in range(n):
