@@ -13,7 +13,8 @@ for skip_point in range(1, n-1):
     for i in range(n):
         if i == skip_point: continue
         path.append((x[i], y[i]))
-    
+    path.append((x[-1], y[-1]))
+
     distance_skipped = 0
     for i in range(len(path) - 1):
         src_x, src_y = path[i]
