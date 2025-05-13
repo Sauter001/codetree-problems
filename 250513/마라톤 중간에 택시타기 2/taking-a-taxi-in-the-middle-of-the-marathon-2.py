@@ -9,6 +9,7 @@ def distance(x1, y1, x2, y2):
 
 shortest_dist = 100 ** 6
 for skip_point in range(1, n-1):
+    path = []
     for i in range(n):
         if i == skip_point: continue
         path.append((x[i], y[i]))
