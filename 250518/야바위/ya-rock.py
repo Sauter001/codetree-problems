@@ -18,4 +18,4 @@ for i in range(3):
         score += do_yabawi(cups, swap1[i], swap2[i], opens[i])
 
     max_score = max(max_score, score)
-print(mas)
+print(max_score)
