@@ -9,7 +9,8 @@ def max_value(factors):
     if val > C:
         return -1
     else:
-        return max(val, max_value([factors[0] + 1, factors[1]]), max_value([factors[0], factors[1] + 1]))
+        a, b = factors
+        return max(val, max_value([a + 1, b]), max_value([a, b + 1]))
 
 print(max_value(factors))
     
