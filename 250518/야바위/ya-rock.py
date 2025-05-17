@@ -15,7 +15,7 @@ for i in range(3):
 
     score = 0
     for j in range(n):
-        score += do_yabawi(cups, swap1[i], swap2[i], opens[i])
+        score += do_yabawi(cups, swap1[j], swap2[j], opens[j])
 
     max_score = max(max_score, score)
 print(max_score)
