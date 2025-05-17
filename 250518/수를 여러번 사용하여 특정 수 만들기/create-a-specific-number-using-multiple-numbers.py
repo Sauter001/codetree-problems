@@ -10,7 +10,7 @@ def max_value(factors):
         return -1
     else:
         a, b = factors
-        return max(val, max_value([a + 1, b]), max_value([a, b + 1]))
+        return max(val, max_value([a + 1, b]), max_value([a, b + 1], max_value[a + 1, b + 1]))
 
 print(max_value(factors))
     
