@@ -4,6 +4,11 @@ arr = list(map(int, input().split()))
 # Please write your code here.
 sums = [0] * (n + 1)
 for i in range(n):
-    sums[i] = sums[i + 1] + arr[i]
+    sums[i + 1] = sums[i] + arr[i]
 
-print(sums)
+res = -1000
+for i in range(n - k + 1):
+    if res < sums[i + k] - sums[i]:
+        res = sums[i + k] - sums[i]
+
+print(res)
