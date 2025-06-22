@@ -10,10 +10,11 @@ for i in range(1, n + 1):
         - sum_matrix[i-1][j-1] + arr[i - 1][j - 1]
 
 res = 0
-print(*sum_matrix, sep='\n')
-for i in range(1, n - k + 1):
-    for j in range(1, n - k + 1):
+# print(*sum_matrix, sep='\n')
+for i in range(1, n - k + 2):
+    for j in range(1, n - k + 2):
         start, end = (i, j), (i + k - 1, j + k - 1)
+        print(start, end)
         candidate = sum_matrix[end[0]][end[1]] \
                     - sum_matrix[start[0] - 1][end[1]] \
                     - sum_matrix[end[0]][start[1] - 1] \
