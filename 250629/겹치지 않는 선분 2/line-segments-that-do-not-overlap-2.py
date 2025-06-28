@@ -6,9 +6,6 @@ checks = [False] * n
 # Please write your code here.
 non_intersect_lines = 0
 def is_intersect(line1, line2):
-    # 기울기 같으면 교차 안 함
-    if line2[1] - line1[0] == line2[1] - line2[0]:
-        return False
     return (line1[0] < line2[0]) and (line1[1] > line2[1])
 
 for i in range(n):
