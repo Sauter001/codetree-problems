@@ -23,7 +23,7 @@ while q:
     visited[cur[0]][cur[1]] = True
     for dx, dy in zip(dxs, dys):
         nx, ny = cur[0] + dx, cur[1] + dy
-        if is_movable(nx, ny) and grid[ny][ny]:
+        if is_movable(nx, ny) and grid[nx][ny]:
             q.append((nx, ny))
 
 print(1 if result else 0)
