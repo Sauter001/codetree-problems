@@ -1,14 +1,12 @@
 from collections import defaultdict
 
 N, M, D, S = map(int, input().split())
-who_eat = defaultdict(list)
 earliest_counter = defaultdict(lambda: 1000) # 사람 p가 치즈 m를 먹은 시간 저장
 eater_counter = defaultdict(int)
 eater_checker = defaultdict(bool)
 
 for _ in range(D):
     person, cheese, time = map(int, input().split())
-    who_eat[(person, time)].append(cheese)
 
     if time < earliest_counter[(person, cheese)]:
         earliest_counter[(person, cheese)] = time
