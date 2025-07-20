@@ -3,6 +3,7 @@ from collections import defaultdict
 N, M, D, S = map(int, input().split())
 who_eat = defaultdict(list)
 earliest_counter = defaultdict(list) # 사람 p가 치즈를 먹은 시간들 저장
+patients_counter = defaultdict(int)
 
 for _ in range(D):
     person, cheese, time = map(int, input().split())
@@ -25,14 +26,16 @@ for p, t in zip(sick_p, sick_t):
     # 아프기 전 먹은 치즈 조회
     for i in range(earliest_counter[p][0], t):
         # print(f"{p}, {t}: {i} => {who_eat[(p, i)]}")
-        rotten_cheese_candidates &= set(who_eat[(p, i)])
+        rotten_cheese_candidates |= set(who_eat[(p, i)])
 
-checker = [False] * (N + 1)
+
 for (p, t), cheeses in who_eat.items():
+    checker = [False] * (N + 1)
     # print(f"{p}, {t}: {cheeses}")
     for c in cheeses:
         if c in rotten_cheese_candidates and not checker[p]:
             checker[p] = True
+            patients_counter[c] += 1
 
-print(sum(checker))
+print(max(patients_counter.values()))
  
