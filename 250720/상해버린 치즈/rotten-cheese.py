@@ -25,12 +25,15 @@ rotten_cheese_candidates = set()
 for p, t in zip(sick_p, sick_t):
     # 아프기 전 먹은 치즈 조회
     for i in range(earliest_counter[p][0], t):
-        # print(f"{p}, {t}: {i}")
+        # print(f"{p}, {t}: {i} => {who_eat[(p, i)]}")
         rotten_cheese_candidates |= set(who_eat[(p, i)])
 
+checker = [False] * (N + 1)
 for (p, t), cheeses in who_eat.items():
+    # print(f"{p}, {t}: {cheeses}")
     for c in cheeses:
-        if c in rotten_cheese_candidates:
+        if c in rotten_cheese_candidates and not checker[p]:
+            checker[p] = True
             patients_counter[c] += 1
 
 print(max(patients_counter.values()))
