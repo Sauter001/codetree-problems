@@ -2,7 +2,7 @@ N, K = map(int, input().split())
 nums = [int(input()) for _ in range(N)]
 bomb_nums = set(nums)
 
-res = 0
+res = -1
 for b in bomb_nums:
     for i in range(N):
         if nums[i] == b:
