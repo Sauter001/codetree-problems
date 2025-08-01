@@ -5,17 +5,17 @@ for i in range(n):
     price, sail = gifts[i]
     gifts[i] = (price // 2, sail)
     candidates = sorted(map(lambda x: x[0] + x[1], gifts))
-    
-    tb = budget
+    # print(candidates)
+
+    cost = 0
     count = 0
     for c in candidates:
-        tb -= c
-        if tb >= 0:
-            count += 1
-        else:
+        if cost + c > budget:
             break
+        cost += c
+        count += 1
     res = max(res, count)
 
-    gifts[i] *= 2 # 상태 복구
+    gifts[i] = (price, sail) # 상태 복구
 
 print(res)
