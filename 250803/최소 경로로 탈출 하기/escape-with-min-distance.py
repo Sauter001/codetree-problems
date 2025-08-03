@@ -5,7 +5,6 @@ grid = [list(map(int, input().split())) for _ in range(n)]
 steps = [[0] * m for _ in range(n)]
 dxs, dys = (1, 0, -1, 0), (0, 1, 0, -1)
 
-count = -1
 visited = [[False] * m for _ in range(n)]
 q = deque([(0, 0)])
 
@@ -18,6 +17,7 @@ def push(x, y, s):
     q.append((x, y))
 
 push(0, 0, 0)
+steps[n - 1][m - 1] = -1
 while q:
     x, y = q.popleft()
 
