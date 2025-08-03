@@ -35,22 +35,19 @@ def bfs(grid, start):
     return melting_now
 
 time = 0
-melting_now = bfs(grid, start)
 iceberg_size = 0
 
-while melting_now:
+while True:
+    # 매 턴마다, (0,0)에서부터 다시 탐색해서 현재 물에 닿은 빙하 찾기
+    melting_now = bfs(grid, start)
+
+    # 더 녹을 빙하가 없으면 끝
+    if not melting_now:
+        break
+
     time += 1
     iceberg_size = len(melting_now)
-    melting_next = set()
-
     for r, c in melting_now:
-        grid[r][c] = 0 # 빙하 녹음 처리
-
-    for r, c in melting_now:
-        for dr, dc in zip(drs, dcs):
-            nr, nc = r + dr, c + dc
-            if is_movable(nr, nc) and grid[nr][nc] == 1:
-                melting_next.add((nr, nc))
-    melting_now = melting_next
+        grid[r][c] = 0
 
 print(time, iceberg_size)
