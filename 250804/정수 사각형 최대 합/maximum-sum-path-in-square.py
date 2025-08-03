@@ -1,6 +1,6 @@
 n = int(input())
 grid = [list(map(int, input().split())) for _ in range(n)]
-dp = [[0] * n for _ in range(n)]
+dp = [[0] * 100 for _ in range(100)]
 dp[0][0] = grid[0][0]
 dp[0][1] = grid[0][1]
 dp[1][0] = grid[1][0]
