@@ -6,11 +6,6 @@ drs, dcs = (1, 0, -1, 0), (0, 1, 0, -1)
 
 start = (0, 0)
 
-def is_melt(grid):
-    result = True
-    for row in grid:
-        result &= (not any(row))
-
 def is_movable(r, c):
     return 0 <= r < n and 0 <= c < m
 
@@ -56,7 +51,6 @@ while melting_now:
             nr, nc = r + dr, c + dc
             if is_movable(nr, nc) and grid[nr][nc] == 1:
                 melting_next.add((nr, nc))
-    # print(melting_now)
     melting_now = melting_next
 
 print(time, iceberg_size)
