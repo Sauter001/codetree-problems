@@ -21,12 +21,10 @@ push(0, 0, 0)
 while q:
     x, y = q.popleft()
 
-    if visited[x][y]:
-        continue
     for dx, dy in zip(dxs, dys):
         nx, ny = x + dx, y + dy
         if in_range(nx, ny) and grid[nx][ny] == 1 and not visited[nx][ny]:
-            push(nx, ny, step[x][y] + 1)
+            push(nx, ny, steps[x][y] + 1)
 
-print(step[n - 1][n - 1])
+print(steps[n - 1][m - 1])
 
