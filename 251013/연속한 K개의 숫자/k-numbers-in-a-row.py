@@ -1,26 +1,15 @@
 n, k, b = map(int, input().split())
-missing = [int(input()) for _ in range(b)]
-miss_check = [False] * (n + 1)
+arr = [0] * (n + 1)
 
-for m in missing:
-    miss_check[m] = True
+for _ in range(b):
+    x = int(input())
+    arr[x] = 1
 
-arr = list(range(1, n + 1))
+prefix_sum = [0] * (n + 1)
+for i in range(1, n + 1):
+    prefix_sum[i] = prefix_sum[i - 1] + arr[i - 1]
 
-count = 10**6
-missing_count = 0
+count = float('inf')
 for i in range(n - k + 1):
-    if i == 0:
-        for j in range(k):
-            if miss_check[arr[j]]:
-                missing_count += 1
-    else:
-        prv, nxt = arr[i - 1], arr[i + k - 1]
-        if miss_check[prv]:
-            missing_count -= 1
-        if miss_check[nxt]:
-            missing_count += 1
-
-    count = min(count, missing_count)
-
+    count = min(count, prefix_sum[i + k - 1] - prefix_sum[i])
 print(count)
