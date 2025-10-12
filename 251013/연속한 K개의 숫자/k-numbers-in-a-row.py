@@ -11,5 +11,5 @@ for i in range(1, n + 1):
 
 count = float('inf')
 for i in range(n - k + 1):
-    count = min(count, prefix_sum[i + k - 1] - prefix_sum[i])
+    count = min(count, prefix_sum[i + k] - prefix_sum[i])
 print(count)
