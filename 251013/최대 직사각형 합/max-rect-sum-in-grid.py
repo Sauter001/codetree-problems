@@ -9,13 +9,24 @@ for i in range(1, n + 1):
 def get_sum(r1, c1, r2, c2):
     return sums[r2][c2] - sums[r1 - 1][c2] - sums[r2][c1 - 1] + sums[r1 - 1][c1 - 1]
 
-# 모든 직사각형 탐색
-max_sum = -1
-for r1 in range(1, n + 1):
-    for c1 in range(1, n + 1):
-        for r2 in range(r1, n + 1):
-            for c2 in range(c1, n + 1):
-                # print('(%d, %d) ~ (%d, %d): %d'%(r1,c1,r2,c2,get_sum(r1, c1, r2, c2)))
-                max_sum = max(max_sum, get_sum(r1, c1, r2, c2))
+def find_max_subsum(arr):
+    arr_len = len(arr)
+    prefix_sum = [0] * arr_len
+    for i in range(1, arr_len):
+        prefix_sum[i] = prefix_sum[i-1] + arr[i]
+    
+    res = 0
+    for i in range(n):
+        for j in range(i + 1, n + 1):
+            res = max(res, prefix_sum[j] - prefix_sum[i])
+    return res
 
-print(max_sum)
+res = -1
+for i in range(1, n + 1):
+    for j in range(i, n + 1):
+        col_sum = [0] * (n + 1)
+        for c in range(1, n + 1):
+            col_sum[c] = get_sum(i, c, j, c)
+            res = max(res, find_max_subsum(col_sum))
+
+print(res)
