@@ -9,24 +9,15 @@ for i in range(1, n + 1):
 def get_sum(r1, c1, r2, c2):
     return sums[r2][c2] - sums[r1 - 1][c2] - sums[r2][c1 - 1] + sums[r1 - 1][c1 - 1]
 
-def find_max_subsum(arr):
-    arr_len = len(arr)
-    prefix_sum = [0] * arr_len
-    for i in range(1, arr_len):
-        prefix_sum[i] = prefix_sum[i-1] + arr[i]
-    
-    res = 0
-    for i in range(n):
-        for j in range(i + 1, n + 1):
-            res = max(res, prefix_sum[j] - prefix_sum[i])
-    return res
-
-res = -1
+res = -float('inf')
 for i in range(1, n + 1):
     for j in range(i, n + 1):
-        col_sum = [0] * (n + 1)
+        cur_sum = 0
+        max_per_slice = -float('inf')
         for c in range(1, n + 1):
-            col_sum[c] = get_sum(i, c, j, c)
-            res = max(res, find_max_subsum(col_sum))
+            cur_col_sum = get_sum(i, c, j, c)
+            cur_sum = max(cur_col_sum, cur_sum + cur_col_sum)
+            max_per_slice = max(max_per_slice, cur_sum)
+        res = max(res, max_per_slice)
 
 print(res)
