@@ -21,6 +21,6 @@ for _ in range(t):
     rs[0] = left_end
     ds[0] = right_end
 
-    print(*ls)
-    print(*rs)
-    print(*ds)
+print(*ls)
+print(*rs)
+print(*ds)
