@@ -6,7 +6,7 @@ positions = [p - 1 for p in positions]
 r1, c1, r2, c2 = positions # 위치 -1 평행 이동
 
 visited = [[0] * n for _ in range(n)]
-distances = [[0] * n for _ in range(n)]
+distances = [[-1] * n for _ in range(n)]
 
 res = -1
 
@@ -28,6 +28,7 @@ while q:
         if movable(nr, nc) and not visited[nr][nc]:
             move(nr, nc, distances[r][c] + 1)
             q.append((nr, nc))
+
 
 print(distances[r2][c2])
 
