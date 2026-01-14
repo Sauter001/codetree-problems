@@ -5,3 +5,5 @@ def hello(n):
         return
     print('HelloWorld')
     hello(n-1)
+
+hello(n)
