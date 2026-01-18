@@ -1,5 +1,6 @@
 n, k = map(int, input().split())
-coordinate = ['X'] * 10001
+MAX_VAL = 10000
+coordinate = ['X'] * (MAX_VAL + 1)
 positions = []
 signs = []
 for _ in range(n):
@@ -11,9 +12,13 @@ for pos, sign in zip(positions, signs):
     coordinate[pos] = sign
 
 res = 0
-for start in range(1, n - (k - 1) + 1):
-    snippet = coordinate[start:start + k + 1]
-    gs = len(list(filter(lambda x: x == 'G', snippet)))
-    hs = 2 * len(list(filter(lambda x: x == 'H', snippet)))
-    res = max(res, gs + hs)
+for start in range(MAX_VAL - (k - 1)):
+    candidate = 0
+    for i in range(start, start + k + 1):
+        if coordinate[i] == 'G':
+            candidate += 1
+        elif coordinate[i] == 'H':
+            candidate += 2
+    res = max(res, candidate)
 print(res)
+
