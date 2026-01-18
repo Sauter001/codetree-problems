@@ -43,13 +43,11 @@ def next_dir_index(idx, delta):
 def move(dir_idx, pos):
     px, py = pos
     if grid[px][py] == '/':
-        dir_idx = next_dir_index(dir_idx, 1)
-        direction = dirs[dir_idx]
-        new_pos = (px + direction[0], py + direction[1])
+        dir_idx ^= 1
     elif grid[px][py] == '\\':
-        dir_idx = next_dir_index(dir_idx, -1)
-        direction = dirs[dir_idx]
-        new_pos = (px + direction[0], py + direction[1])
+        dir_idx = 3 - dir_idx
+    direction = dirs[dir_idx]
+    new_pos = (px + direction[0], py + direction[1])
     return dir_idx, new_pos
 
 
@@ -58,4 +56,4 @@ count = 0
 while not is_out_of_bound(cur_pos):
     cur_dir_index, cur_pos = move(cur_dir_index, cur_pos)
     count += 1
-print(count + 1)
+print(count)
