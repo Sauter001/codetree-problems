@@ -6,7 +6,7 @@ for p in people:
     pos, alpha = p
     pos = int(pos)
     positions.append((pos, 1 if alpha == 'G' else -1))
-
+positions.sort()
 max_size = 0
 POS_INDEX, SIGN_INDEX = 0, 1
 
