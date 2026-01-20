@@ -7,7 +7,7 @@ for _ in range(n):
     coordinate[p] += c
 
 count = 0
-for center in range(k, MAX_POS - k + 1):
+for center in range(k, MAX_POS + 1):
     min_idx = max(0, center - k)
     max_idx = min(MAX_POS, center + k)
     sliced = coordinate[min_idx:max_idx+1]
