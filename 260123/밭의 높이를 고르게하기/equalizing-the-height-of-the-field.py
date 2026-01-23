@@ -1,16 +1,15 @@
 n, height, trial = map(int, input().split())
 arr = list(map(int, input().split()))
 diff_arr = sorted([abs(x - height) for x in arr], reverse=True)
+diff_prefix = [0] * (n + 1)
 
-cost = 0
-trial_count = len(list(filter(lambda d: d == 0, diff_arr)))
+s = 0
+for i in range(n):
+    s += diff_arr[i]
+    diff_prefix[i + 1] = s
 
-while trial_count <= trial:
-    trial_count += 1
-    if not diff_arr:
-        break
+min_cost = float('inf')
+for i in range(n - trial + 1):
+    min_cost = min(min_cost, diff_prefix[i + trial] - diff_prefix[i])
 
-    diff = diff_arr.pop()
-    cost += diff
-    
-print(cost)
+print(min_cost)
