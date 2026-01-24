@@ -6,14 +6,6 @@ result = 0
 def out_of_bound(r, c):
     return not (0 <= r < n and 0 <= c < n)
 
-def is_rectangle(south, east, north, west):
-    def is_diagonal(p1, p2):
-        return abs(p1[0] - p2[0]) == abs(p1[1] - p2[1])
-    return is_diagonal(south, east) \
-            and is_diagonal(east, north) \
-            and is_diagonal(north, west) \
-            and is_diagonal(west, south)
-
 def count_rect_from(row, col):
     global result
     for side1 in range(1, n - 1):
