@@ -10,7 +10,7 @@ cur_capacity = capacity
 res = 0
 
 for idx, up in unit_prices:
-    take = min(capacity, weights[idx])
+    take = min(cur_capacity, weights[idx])
     res += up * take
     cur_capacity -= take
 
