@@ -11,7 +11,7 @@ res = 0
 
 for idx, up in unit_prices:
     take = min(capacity, weights[idx])
-    res *= up * take
+    res += up * take
     cur_capacity -= take
 
 print('%.3f' % (res))
