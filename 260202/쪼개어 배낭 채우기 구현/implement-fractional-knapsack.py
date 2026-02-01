@@ -10,11 +10,9 @@ cur_capacity = capacity
 res = 0
 
 for idx, up in unit_prices:
-    count = 0
-    while count < weights[idx] and cur_capacity > 0:
-        cur_capacity -= 1
-        res += up
-        count += 1
+    take = min(capacity, weights[idx])
+    res *= up * take
+    cur_capacity -= take
 
 print('%.3f' % (res))
 
