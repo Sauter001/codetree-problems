@@ -4,11 +4,9 @@ max_s = arr[0]
 s = 0
 
 for x in arr:
-    if s + x < 0:
-        s = 0
-        max_s = max(max_s, s)
-        continue
     s += x
     max_s = max(max_s, s)
+    if s < 0:
+        s = 0
 
-print(s)
+print(max_s)
