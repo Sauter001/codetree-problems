@@ -7,7 +7,7 @@ arr_counter = Counter(arr)
 
 for x in arr_counter.keys():
     if k - x == x:
-        diff_map[x] = arr_counter[k] // 2
+        diff_map[x] = arr_counter[x] // 2
     else:
         diff_map[x] = arr_counter[k - x]
 
