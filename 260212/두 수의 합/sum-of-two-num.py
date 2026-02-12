@@ -6,7 +6,7 @@ diff_map = {}
 arr_counter = Counter(arr)
 
 def combi(x):
-    return x(x-1)//2
+    return x*(x-1)//2
 
 for x in arr_counter.keys():
     if k - x == x:
