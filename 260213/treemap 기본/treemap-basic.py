@@ -4,14 +4,15 @@ sorted_dict = SortedDict()
 n = int(input())
 
 def add(k, v):
-    sorted_dict[k] = v
+    sorted_dict[int(k)] = v
 
 def remove(k):
-    sorted_dict.pop(k, 'None')
+    sorted_dict.pop(int(k), 'None')
 
 def find(k):
-    if k in sorted_dict:
-        return int(sorted_dict[k])
+    parsed_key = int(k)
+    if int(parsed_key) in sorted_dict:
+        return int(sorted_dict[parsed_key])
     else:
         return -1
 
