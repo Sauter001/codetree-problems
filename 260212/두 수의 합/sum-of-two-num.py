@@ -5,9 +5,12 @@ arr = list(map(int, input().split()))
 diff_map = {}
 arr_counter = Counter(arr)
 
+def combi(x):
+    return x(x-1)//2
+
 for x in arr_counter.keys():
     if k - x == x:
-        diff_map[x] = arr_counter[x] // 2
+        diff_map[x] = combi(arr_counter[x])
     else:
         diff_map[x] = arr_counter[k - x]
 
