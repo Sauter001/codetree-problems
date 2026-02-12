@@ -12,7 +12,7 @@ for x in arr_counter.keys():
     if k - x == x:
         diff_map[x] = combi(arr_counter[x])
     else:
-        diff_map[x] = arr_counter[k - x]
+        diff_map[x] = arr_counter[x] * arr_counter[k - x]
 
 visit_map = defaultdict(bool)
 count = 0
