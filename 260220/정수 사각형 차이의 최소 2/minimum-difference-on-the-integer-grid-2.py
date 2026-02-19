@@ -14,6 +14,9 @@ def can_reach(start, diff):
     def in_range(val):
         return start <= val <= start + diff
 
+    if not in_range(grid[0][0]) :
+        return False
+
     dp = [[0] * n for _ in range(n)]
     for i in range(n):
         if not in_range(grid[i][0]):
