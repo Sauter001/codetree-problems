@@ -1,8 +1,11 @@
+import sys
+input = sys.stdin.readline
+
 n = int(input())
 grid = [list(map(int, input().split())) for _ in range(n)]
 
 def can_reach_any(diff):
-    for start in sum(grid, []):
+    for start in set(sum(grid, [])):
         if can_reach(start, diff):
             return True
     return False
