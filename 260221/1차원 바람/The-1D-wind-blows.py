@@ -6,7 +6,6 @@ input = sys.stdin.readline
 n, m, q = map(int, input().split())
 arr = [deque(map(int, input().split())) for _ in range(n)]
 winds = [(int(r), d) for r, d in [input().split() for _ in range(q)]]
-wind_queue = deque()
 
 def shift(row_idx, d):
     def shift_left(row_idx):
