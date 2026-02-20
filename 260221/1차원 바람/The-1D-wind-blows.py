@@ -4,17 +4,17 @@ from collections import deque
 input = sys.stdin.readline
 
 n, m, q = map(int, input().split())
-arr = [list(map(int, input().split())) for _ in range(n)]
+arr = [deque(map(int, input().split())) for _ in range(n)]
 winds = [(int(r), d) for r, d in [input().split() for _ in range(q)]]
 wind_queue = deque()
 
 def shift(row_idx, d):
     def shift_left(row_idx):
         row = arr[row_idx]
-        row.append(row.pop(0))
+        row.append(row.popleft())
     def shift_right(row_idx):
         row = arr[row_idx]
-        row.insert(0, row.pop())
+        row.appendleft(row.pop())
     if d == 'L':
         shift_right(row_idx)
     elif d == 'R':
